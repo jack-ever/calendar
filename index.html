@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>تقویم شمسی</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      font-size: 36px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="date"></h1>
+
+  <script>
+    function toJalali(gDate) {
+      const gYear = gDate.getFullYear();
+      const gMonth = gDate.getMonth() + 1;
+      const gDay = gDate.getDate();
+
+      const d = new Date(gDate);
+      const options = { year: 'numeric', month: 'long', day: 'numeric', calendar: 'persian' };
+      const farsiDate = d.toLocaleDateString('fa-IR', options);
+      return farsiDate;
+    }
+
+    const today = new Date();
+    document.getElementById("date").innerText = toJalali(today);
+  </script>
+</body>
+</html>
